@@ -1,19 +1,41 @@
 <div class="container">
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" href="#">YELP</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="#">Simple AirBnB</a>
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
     <%= link_to new_flat_path do %>
             Add flat
     <% end %>
+    </button>
   </nav>
 </div>
 
-<h1>All our flats</h1>
-
-<% @flats.each do |flat| %>
-  <div>
-    <h2><%= link_to flat.name, flat %></h2>
-    <p><%= flat.address %></p>
-    <p><%= flat.price_per_night %></p>
-    <p><%= flat.number_of_guests %></p>
+<div class="container mt-3 display-flex">
+  <div class="row">
+    <div class="col-12">
+      <h3>All our flats</h3>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <%# <div class="card-group"> %>
+      <% @flats.each do |flat| %>
+        <div class="col-md-4">
+          <div class="card m-2 bg-light">
+              <img class="card-img-top" src="https://source.unsplash.com/random/500x250" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to flat.name, flat %></h5>
+                <p class="card-text"><%= flat.address %></p>
+                <div class="flex">
+                  <div class="flex">
+                    <i class="material-icons me-2">people</i>
+                    <span><%= flat.number_of_guests %></span>
+                    <i class="material-icons me-2">euro_symbol</i>
+                    <span><%= flat.price_per_night %></span>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <% end %>
+    <%# </div> %>
+  </div>
+</div>
