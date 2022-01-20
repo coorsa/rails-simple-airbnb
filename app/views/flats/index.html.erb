@@ -1,0 +1,19 @@
+<div class="container">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="#">YELP</a>
+    <%= link_to new_flat_path do %>
+            Add flat
+    <% end %>
+  </nav>
+</div>
+
+<h1>All our flats</h1>
+
+<% @flats.each do |flat| %>
+  <div>
+    <h2><%= link_to flat.name, flat %></h2>
+    <p><%= flat.address %></p>
+    <p><%= flat.price_per_night %></p>
+    <p><%= flat.number_of_guests %></p>
+  </div>
+<% end %>
